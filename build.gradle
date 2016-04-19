@@ -1,0 +1,83 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+repositories {
+	mavenCentral()
+	maven {
+		url "http://repo.spring.io/libs-milestone-local"
+	}
+	maven {
+		url "http://repo.spring.io/libs-release-local"
+	}
+	maven {
+		url "http://repo.spring.io/libs-snapshot-local"
+	}
+}
+
+dependencies {
+	
+	def springVersion = "4.0.9.RELEASE"
+	def springSecurityVersion = "3.2.8.RELEASE"
+	def commonsCodecVersion = "1.9"
+	def servletVersion = "3.0.1"
+	def jackson1Version = "1.9.13"
+	def jackson2Version = "2.3.2"
+	def httpclientVersion = "4.3.3"
+	def slf4jVersion = "1.7.6"
+	def hsqlVersion = "2.2.4"
+	def redisVersion = "0.6"
+	def oauthVersion = "2.0.9.RELEASE"
+
+	runtime "org.springframework:spring-beans:$springVersion"
+	runtime "org.springframework:spring-core:$springVersion"
+	runtime "org.springframework:spring-context:$springVersion"
+	runtime "org.springframework:spring-expression:$springVersion"
+	runtime "org.springframework:spring-aop:$springVersion"
+	runtime "org.springframework:spring-jdbc:$springVersion"
+	runtime "org.springframework:spring-tx:$springVersion"
+	runtime "org.springframework:spring-web:$springVersion"
+	runtime "org.springframework:spring-webmvc:$springVersion"
+	runtime "org.springframework:spring-test:$springVersion"
+	runtime "org.springframework.security:spring-security-core:$springSecurityVersion"
+	runtime "org.springframework.security:spring-security-config:$springSecurityVersion"
+	runtime "org.springframework.security:spring-security-jwt:+"
+	//runtime "org.springframework.security:spring-security-web:$springSecurityVersion"
+	runtime("org.springframework.security:spring-security-web:$springSecurityVersion") {
+		exclude module: 'org.springframework:spring-tx'
+	}
+	runtime "org.springframework.security:spring-security-taglibs:$springSecurityVersion"
+	runtime "commons-codec:commons-codec:$commonsCodecVersion"
+	runtime "javax.servlet:javax.servlet-api:$servletVersion"
+	runtime "org.codehaus.jackson:jackson-mapper-asl:$jackson1Version"
+	runtime "com.fasterxml.jackson.core:jackson-annotations:$jackson2Version"
+	runtime "com.fasterxml.jackson.core:jackson-databind:$jackson2Version"
+	runtime "org.apache.httpcomponents:httpclient:$httpclientVersion"
+	runtime "org.slf4j:slf4j-api:$slf4jVersion"
+	runtime "org.hsqldb:hsqldb-j5:$hsqlVersion"
+	runtime "com.orange.redis-embedded:embedded-redis:$redisVersion"
+	runtime "org.springframework.security.oauth:spring-security-oauth2:$oauthVersion"
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
